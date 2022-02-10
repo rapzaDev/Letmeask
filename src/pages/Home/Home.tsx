@@ -1,6 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../../services/firebase';
+
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
@@ -11,8 +14,16 @@ import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 function Home() {
     let navigate = useNavigate();
 
-    function navigateToNewRoom() {
-        navigate('/rooms/new');
+    function handleCreateRoom() {
+        const provider = new GoogleAuthProvider();
+
+        signInWithPopup(auth, provider).then( ( result ) => {
+            console.log(result);
+
+            navigate('/rooms/new');
+        });
+
+
     }
 
     return(
@@ -31,7 +42,7 @@ function Home() {
 
                     <DefaultButton 
                         className="google-button"
-                        onClick={navigateToNewRoom}
+                        onClick={handleCreateRoom}
                     >
                         <img src={googleIconImg} alt="Google icon" />
                         Crie sua sala com o Google
