@@ -61,6 +61,18 @@
             align-self: center;
         }
 
+        .google-button {
+            margin-top: 64px;
+    
+            background: var(--google-button-color);
+            color: #fff;
+    
+            img {
+                margin-right: 8px;
+            }
+    
+        }
+
         form {
 
             input {
@@ -73,32 +85,17 @@
                 border: 1px solid var(--light-grey-color);
             }
 
-            button {
+            .submit-button {
                 margin-top: 16px;
+
+                background-color: var(--purple-color);
+                color: #fff;
             }
 
             input, button {
                 width: 100%;
             }
 
-        }
-
-    }
-
-    .default-button {
-        margin-top: 64px;
-
-        background: var(--google-button-color);
-        color: #fff;
-
-        transition: filter 0.2s;
-
-        img {
-            margin-right: 8px;
-        }
-
-        &:hover {
-            filter: brightness(0.9);
         }
 
     }

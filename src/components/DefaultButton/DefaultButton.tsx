@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 import './styles.scss';
 
-interface DefaultButtonProps {
-    children: React.ReactNode;
-};
+type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-function DefaultButton ( { children }: DefaultButtonProps) {
+function DefaultButton ( { children, ...rest }: DefaultButtonProps) {
     return (
-        <button className="default-button">
+        <button {...rest} >
             {children}
         </button>
     );
