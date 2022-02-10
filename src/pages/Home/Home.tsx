@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
@@ -8,6 +9,12 @@ import './styles.scss';
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 
 function Home() {
+    let navigate = useNavigate();
+
+    function navigateToNewRoom() {
+        navigate('/rooms/new');
+    }
+
     return(
         <div id="page-auth" >
 
@@ -22,7 +29,10 @@ function Home() {
 
                     <img src={logoImg} alt="Letmeask logo" />
 
-                    <DefaultButton className="google-button">
+                    <DefaultButton 
+                        className="google-button"
+                        onClick={navigateToNewRoom}
+                    >
                         <img src={googleIconImg} alt="Google icon" />
                         Crie sua sala com o Google
                     </DefaultButton>
