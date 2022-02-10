@@ -8,8 +8,9 @@ import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
-import './styles.scss';
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
+
+import './styles.scss';
 
 function Home() {
     let navigate = useNavigate();
@@ -22,7 +23,6 @@ function Home() {
 
             navigate('/rooms/new');
         });
-
 
     }
 

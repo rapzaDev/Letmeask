@@ -1,21 +1,16 @@
-import React from 'react';
-import { 
-  BrowserRouter, 
-  Routes,
-  Route  
-} from "react-router-dom";
+import React, { createContext, useState } from 'react';
 
-import { Home } from './pages/Home/Home';
-import { NewRoom } from './pages/NewRoom/NewRoom';
+import { Router } from './routes';
+
+export const AuthContext = createContext({} as any);
 
 function App() {
+  const [ user, setUser ] = useState();
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={ <Home /> } />
-        <Route path="/rooms/new" element={ <NewRoom /> } />
-      </Routes>
-    </BrowserRouter>
+    <AuthContext.Provider value={{ user, setUser }}>
+        <Router />
+    </AuthContext.Provider>
   );
 }
 
