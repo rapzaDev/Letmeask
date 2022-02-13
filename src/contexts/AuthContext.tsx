@@ -34,16 +34,16 @@ function AuthContextProvider ( { children }: AuthContextProviderProps ) {
             }
 
             setUser({
-            id: uid,
-            name: displayName,
-            avatar: photoURL
+                id: uid,
+                name: displayName,
+                avatar: photoURL
             });
 
         }
         });
 
         return () => {
-        unsubscribe();
+            unsubscribe(); // best practices
         }
 
     }, []);
@@ -55,17 +55,17 @@ function AuthContextProvider ( { children }: AuthContextProviderProps ) {
         
         if (result.user) {
 
-        const { displayName, photoURL, uid } = result.user;
+            const { displayName, photoURL, uid } = result.user;
 
-        if ( !displayName || !photoURL ) {
-            throw new Error('Missing user information from Google Account');
-        }
+            if ( !displayName || !photoURL ) {
+                throw new Error('Missing user information from Google Account');
+            }
 
-        setUser({
-            id: uid,
-            name: displayName,
-            avatar: photoURL
-        });
+            setUser({
+                id: uid,
+                name: displayName,
+                avatar: photoURL
+            });
 
         }
 

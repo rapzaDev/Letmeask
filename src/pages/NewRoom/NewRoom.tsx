@@ -1,13 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, FormEvent , useState} from 'react';
 import { Link } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/useAuth';
+
+import { database } from '../../services/firebase';
+import { ref, set } from 'firebase/database';
 
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
-import './styles.scss';
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 
+import './styles.scss';
+
+
 function NewRoom() {
+
+    const [ newRoom, setNewRoom ] = useState('');
+
+    const { user } = useAuth();
+
+    async function handleCreateRoom(event: FormEvent) {
+        event.preventDefault();
+
+        if ( newRoom.trim() === '' ) return;
+
+        const roomRef = ref(database, 'rooms');
+
+        set( roomRef, {
+            title: newRoom,
+            authorId: user?.id,
+        });
+
+    }
+
     return(
         <div id="page-auth" >
 
@@ -24,10 +50,12 @@ function NewRoom() {
 
                     <h2>Crie uma nova sala</h2>
 
-                    <form>
+                    <form onSubmit={handleCreateRoom} >
                         <input 
                             type="text" 
                             placeholder="Nome da sala"
+                            onChange={ event => setNewRoom(event.target.value) }
+                            value={newRoom}
                         />
                         <DefaultButton 
                             type="submit"
