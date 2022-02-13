@@ -1,12 +1,10 @@
-import React, { useContext, FormEvent , useState } from 'react';
+import React, { FormEvent , useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
-import { v4 } from 'uuid';
 
 import { useAuth } from '../../hooks/useAuth';
 
 import { database } from '../../services/firebase';
-import { ref, set } from 'firebase/database';
+import { ref, set, push } from 'firebase/database';
 
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
@@ -31,15 +29,12 @@ function NewRoom() {
 
         const roomRef = ref(database, 'rooms');
 
-        const roomID = v4();
-
-        await set( roomRef, {
+        const firebaseRoom = push( roomRef, {
             title: newRoom,
             authorId: user?.id,
-            roomId: roomID
         });
 
-        navigate(`/rooms/${roomID}`); // now the new created room has one unique key of firebase.
+        navigate(`/rooms/${firebaseRoom.key}`); // now the new created room has one unique key of firebase.
 
     }
 
