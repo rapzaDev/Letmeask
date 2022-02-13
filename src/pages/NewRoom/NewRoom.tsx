@@ -29,7 +29,7 @@ function NewRoom() {
 
         const roomRef = ref(database, 'rooms');
 
-        const firebaseRoom = push( roomRef, {
+        const firebaseRoom = push( roomRef, { // pushing data to the 'rooms' category on database
             title: newRoom,
             authorId: user?.id,
         });
