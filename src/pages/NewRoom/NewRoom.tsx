@@ -1,5 +1,7 @@
-import React, { useContext, FormEvent , useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, FormEvent , useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { v4 } from 'uuid';
 
 import { useAuth } from '../../hooks/useAuth';
 
@@ -20,6 +22,8 @@ function NewRoom() {
 
     const { user } = useAuth();
 
+    let navigate = useNavigate();
+
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
 
@@ -27,10 +31,15 @@ function NewRoom() {
 
         const roomRef = ref(database, 'rooms');
 
-        set( roomRef, {
+        const roomID = v4();
+
+        await set( roomRef, {
             title: newRoom,
             authorId: user?.id,
+            roomId: roomID
         });
+
+        navigate(`/rooms/${roomID}`); // now the new created room has one unique key of firebase.
 
     }
 
