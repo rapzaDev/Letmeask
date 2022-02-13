@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/useAuth';
 
-import { onValue, ref } from 'firebase/database';
+import { ref, get } from 'firebase/database';
 import { database } from '../../services/firebase';
 
 import illustrationImg from '../../assets/images/illustration.svg';
@@ -33,7 +33,16 @@ function Home() {
 
         if ( roomCode.trim() === '' ) return;
 
-        // const roomRef = 
+        const roomRef = ref( database, `rooms/${roomCode}`); // catching the reference of the specified room.
+
+        const firebaseRoomData = await get(roomRef); // getting the data of that room
+
+        if ( !firebaseRoomData.exists() ) {
+            alert('Room does not exists.');
+            return;
+        }
+
+        navigate(`/rooms/${roomCode}`); 
 
     }
 
