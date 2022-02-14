@@ -10,7 +10,7 @@ type RoomCodeProps = {
 
 function RoomCode({ code }: RoomCodeProps) {
     function copyRoomCodeToClipboard() {
-        navigator.clipboard.writeText(code);
+        navigator.clipboard.writeText(code); 
     }
 
     return(
