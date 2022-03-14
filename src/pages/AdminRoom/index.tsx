@@ -6,11 +6,12 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 
 //FIREBASE
-import { ref, push } from 'firebase/database';
+import { ref, remove } from 'firebase/database';
 import { database } from '../../services/firebase';
 
 //ASSETS
 import logoImg from '../../assets/images/logo.svg';
+import deleteImg from '../../assets/images/delete.svg';
 
 //COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton';
@@ -51,6 +52,25 @@ function AdminRoom() {
 
 
 
+    /**
+     * @description
+     * If the user confirms the window modal, the current question will be deleted.
+     * 
+     * @param questionId unique key of each question question on firebase
+     */
+    async function handleDeleteQuestion( questionId: string) {
+        
+        if ( window.confirm('Tem certeza que você deseja excluir esta pergunta?') ) {
+
+            const questionRef = ref( database, `rooms/${codeID}/questions/${questionId}` );
+
+            await remove( questionRef );
+
+        }
+
+    }
+
+
     function renderQuestions() {
 
         return (
@@ -62,7 +82,14 @@ function AdminRoom() {
                         key={question.id} 
                         content={question.content} 
                         author={question.author}
-                    />
+                    >
+                        <button
+                            type="button"
+                            onClick={() => handleDeleteQuestion(question.id) }
+                        >
+                            <img src={deleteImg} alt="Remover pergunta" />
+                        </button>
+                    </Question>
 
                 )
             )

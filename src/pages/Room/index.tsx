@@ -90,9 +90,11 @@ function Room() {
 
     /**
      * @description 
-     * Get the like reference on firebase database and pushes a new like on it.
+     * Gets the like reference on firebase database and pushes a new like on it. If
+     * the user has already marked the like button, if he clicks again, will unmark the like.
      * 
      * @param questionId unique id of the question like
+     * @param likeId id of the like inside the likes label on the current question.
      */
     async function handleLikeQuestion( questionId: string, likeId: string | undefined ) {
         
