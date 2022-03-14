@@ -14,6 +14,7 @@ import logoImg from '../../assets/images/logo.svg';
 //COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 import { RoomCode } from '../../components/RoomCode/RoomCode';
+import Question from '../../components/Question';
 
 //STYLES
 import './styles.scss';
@@ -81,7 +82,9 @@ function Room() {
 
 
     /**
-     * @description everytime the codeID changes, for any reason, 
+     * @description Keep tracking the data on firebase and every time that data changes
+     * the useEffect will update the interface data.
+     * Also if the codeID changes, for any reason, 
      * the useEffect will execute the entire code again and get the 
      * new data for the new room.
      */
@@ -147,6 +150,11 @@ function Room() {
 
     }
 
+    /**
+     * @description 
+     * Render the user info bellow the textlabel of new question.
+     * If the user is not authenticated, shows a link to authenticate.
+     */
     function renderUserInfo() {
     
         if ( user ) {
@@ -159,6 +167,29 @@ function Room() {
         } else return <span>Para enviar uma pergunta, <button>faça seu login.</button></span> ;
     
     }
+
+
+    function renderQuestions() {
+
+        return (
+
+            questions.map(
+                question => (
+
+                    <Question 
+                        key={question.id} 
+                        content={question.content} 
+                        author={question.author}
+                    />
+
+                )
+            )
+
+        );
+
+    }
+
+
 
     return(
         <div id="page-room">
@@ -195,8 +226,10 @@ function Room() {
                     </div>
                 </form>
 
-                { JSON.stringify(questions) }
-                
+                <div className="questions-list">
+                    { renderQuestions() }
+                </div>
+
             </main>
         </div>
     );
