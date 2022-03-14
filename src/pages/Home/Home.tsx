@@ -1,25 +1,38 @@
 import React, { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+//CONTEXT
 import { useAuth } from '../../hooks/useAuth';
 
+//FIREBASE
 import { ref, get } from 'firebase/database';
 import { database } from '../../services/firebase';
 
+//ASSETS
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
+//COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 
+//STYLES
 import './styles.scss';
+
+
 
 function Home() {
     let navigate = useNavigate();
+
     const { user, signInWithGoogle } = useAuth();
 
     const [ roomCode, setRoomCode ] = useState('');
 
+    /**
+     * @description If the user is not authenticated, the google pop-up will appear and the user will 
+     * authenticate with his google account. If the user is already authenticate, he will be redirected 
+     * to NewRoom page. 
+     * */
     async function handleCreateRoom() {
         if ( !user ) {
            await signInWithGoogle();
@@ -28,14 +41,28 @@ function Home() {
         navigate('/rooms/new');
     }
 
+
+    /**
+     * @description searches for a room on firebase database with the room code passed. 
+     * If the room exists, the user will be redirected to this specific Room Page, if not,
+     * nothing happens.
+     */
     async function handleJoinRoom(event: FormEvent) {
         event.preventDefault();
 
         if ( roomCode.trim() === '' ) return;
 
-        const roomRef = ref( database, `rooms/${roomCode}`); // catching the reference of the specified room.
+        /**
+         * @description Catches the reference of the specified room with his room Code and search for it on
+         * firebase database. */
+        const roomRef = ref( database, `rooms/${roomCode}`); 
 
-        const firebaseRoomData = await get(roomRef); // getting the data of that room
+        /**
+         * @description If the reference of the room exists, this will get the data of that room.
+         * 
+         * @var roomRef: reference of room on database of firebase.
+         */
+        const firebaseRoomData = await get(roomRef); 
 
         if ( !firebaseRoomData.exists() ) {
             alert('Room does not exists.');

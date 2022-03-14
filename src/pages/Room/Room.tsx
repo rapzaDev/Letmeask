@@ -1,16 +1,21 @@
 import React, { FormEvent, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+//CONTEXT
 import { useAuth } from '../../hooks/useAuth';
 
+//FIREBASE
 import { ref, push, onValue } from 'firebase/database';
 import { database } from '../../services/firebase';
 
+//ASSETS
 import logoImg from '../../assets/images/logo.svg';
 
+//COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 import { RoomCode } from '../../components/RoomCode/RoomCode';
 
+//STYLES
 import './styles.scss';
 
 
@@ -41,24 +46,45 @@ type QuestionsType = {
         avatar: string
     },
     content: string,
-    isHighlighted: boolean
+
+    /**
+     * @description The admin sets if this question is been answered in that moment.
+     *  */
+    isHighlighted: boolean,
     isAnswered: boolean,
 }
 
+
+
 function Room() {
     
-    const params = useParams<RoomParams>(); // using useParams to take the id room
+    /**
+     * @description using useParams this variable will take the id of the room.
+     */
+    const params = useParams<RoomParams>(); 
+
+    /**
+     *  @description Is the unique key of the room on firebase. 
+     * */
     const codeID = params.id as string;
 
+    // authenticated user logged with his google account.
     const { user } = useAuth();
 
-    // form elements states
+    // FORM STATES
     const [ newQuestion, setNewQuestion ] = useState('');
     
-    // firebase data states
+    // FIREBASE STATES
     const [ roomTitle, setRoomTitle ] = useState('');
     const [ questions, setQuestions ] = useState<QuestionsType[]>([]);
 
+
+
+    /**
+     * @description everytime the codeID changes, for any reason, 
+     * the useEffect will execute the entire code again and get the 
+     * new data for the new room.
+     */
     useEffect(() => {
         const roomRef = ref(database, `rooms/${codeID}`);
 
@@ -85,10 +111,13 @@ function Room() {
             unsubscribe();
         }
 
-    }, [codeID]); /** everytime the codeID changes, for any reason, 
-    the useEffect will execute the entire code again and get the new data for the new room. */ 
+    }, [codeID]);
 
 
+    /**
+     * @description take the data of the question form and send it to
+     * firebase database. After that, erases the data of textlabel field.
+     */
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
 
@@ -104,16 +133,17 @@ function Room() {
                 name: user.name,
                 avatar: user.avatar,
             },
-            isHighlighted: false, // is the prop who the admin sets if this question is been answered in that moment.
+            isHighlighted: false,
             isAnswered: false
         }
 
-        // sending the new question to 'questions' label on the specify room.
         const roomRef = ref(database, `rooms/${codeID}/questions`); 
 
+        // sending the new question to 'questions' label on the specify room.
         await push(roomRef, question);
 
-        setNewQuestion(''); // after sending the question to database, I erase it of textlabel field.
+        // after sending the question to database, I erase it of textlabel field.
+        setNewQuestion(''); 
 
     }
 

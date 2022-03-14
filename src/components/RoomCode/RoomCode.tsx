@@ -9,6 +9,11 @@ type RoomCodeProps = {
 }
 
 function RoomCode({ code }: RoomCodeProps) {
+
+    /**
+     * @description copy the room code displayed on interface when the user
+     * click on him.
+     */
     function copyRoomCodeToClipboard() {
         navigator.clipboard.writeText(code); 
     }

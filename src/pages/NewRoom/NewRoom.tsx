@@ -1,27 +1,38 @@
 import React, { FormEvent , useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+//CONTEXT
 import { useAuth } from '../../hooks/useAuth';
 
+//FIREBASE
 import { database } from '../../services/firebase';
 import { ref, set, push } from 'firebase/database';
 
+//ASSETS
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
+//COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
 
+//STYLES
 import './styles.scss';
 
 
+
 function NewRoom() {
+
+    let navigate = useNavigate();
 
     const [ newRoom, setNewRoom ] = useState('');
 
     const { user } = useAuth();
 
-    let navigate = useNavigate();
-
+    /** 
+     * @description Creates a new room with the title choosen on form
+     * and his owner identification ( the user id value
+     * of his google account), and redirects the user for this recently created Room Page.  
+     */
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
 
@@ -29,12 +40,19 @@ function NewRoom() {
 
         const roomRef = ref(database, 'rooms');
 
-        const firebaseRoom = push( roomRef, { // pushing data to the 'rooms' category on database
+        /**
+         * @description push data to the 'rooms' category on database to create a new room. After that,
+         * returns the unique key of the new room.
+         * 
+         * @var title: the name of the room
+         * @var authorId: the name of the authenticated user on google account who's created the new room.
+         */
+        const firebaseRoom = push( roomRef, { 
             title: newRoom,
             authorId: user?.id,
         });
 
-        navigate(`/rooms/${firebaseRoom.key}`); // now the new created room has one unique key of firebase.
+        navigate(`/rooms/${firebaseRoom.key}`); 
 
     }
 
