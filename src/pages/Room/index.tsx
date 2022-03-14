@@ -13,8 +13,8 @@ import { database } from '../../services/firebase';
 import logoImg from '../../assets/images/logo.svg';
 
 //COMPONENTS
-import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
-import { RoomCode } from '../../components/RoomCode/RoomCode';
+import { DefaultButton } from '../../components/DefaultButton';
+import { RoomCode } from '../../components/RoomCode';
 import Question from '../../components/Question';
 
 //STYLES
@@ -26,7 +26,11 @@ type RoomParams = {
 }
 
 
-
+/**
+ * @description 
+ * Will Render the page for the user who has the respective codeID and wants
+ * to use this room page to make some question.
+ */
 function Room() {
     
     /**

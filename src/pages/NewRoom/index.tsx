@@ -13,7 +13,7 @@ import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
 //COMPONENTS
-import { DefaultButton } from '../../components/DefaultButton/DefaultButton';
+import { DefaultButton } from '../../components/DefaultButton';
 
 //STYLES
 import './styles.scss';
