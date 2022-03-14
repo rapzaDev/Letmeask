@@ -6,7 +6,7 @@ type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 function DefaultButton ( { children, ...rest }: DefaultButtonProps) {
     return (
-        <button {...rest} >
+        <button id="default-button" {...rest} >
             {children}
         </button>
     );

@@ -1,3 +1,4 @@
+import React from 'react';
 
 //STYLES
 import './styles.scss';
@@ -8,9 +9,10 @@ type QuestionProps = {
         name: string;
         avatar: string;
     };
+    children?: React.ReactNode;
 }
 
-function Question( { content, author }: QuestionProps ) {
+function Question( { content, author, children }: QuestionProps ) {
 
     return(
 
@@ -20,15 +22,13 @@ function Question( { content, author }: QuestionProps ) {
             <footer>
                 
                 <div className="user-info">
-                    <img src={author.avatar} alt={author.name} />
+                    <img referrerPolicy="no-referrer" src={author.avatar} alt={author.name} />
                     <span>{author.name}</span>
                 </div>
 
-                <div></div>
+                <div>{children}</div>
 
             </footer>
-
-            
 
         </div>
 
