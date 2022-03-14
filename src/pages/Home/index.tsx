@@ -69,6 +69,12 @@ function Home() {
             return;
         }
 
+        // if endedAt exists, the room is closed.
+        if ( firebaseRoomData.val().endedAt ) {
+            alert('Room already closed.');
+            return;
+        }
+
         navigate(`/rooms/${roomCode}`); 
 
     }

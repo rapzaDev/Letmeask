@@ -1,12 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 //HOOKS
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 
 //FIREBASE
-import { ref, remove } from 'firebase/database';
+import { ref, remove, update } from 'firebase/database';
 import { database } from '../../services/firebase';
 
 //ASSETS
@@ -34,6 +34,8 @@ type RoomParams = {
  */
 function AdminRoom() {
     
+    let navigate = useNavigate();
+
     /**
      * @description using useParams this variable will take the id of the room.
      */
@@ -49,6 +51,26 @@ function AdminRoom() {
 
     //ROOM HOOK
     const { questions, roomTitle } = useRoom( codeID );
+
+
+    /**
+     * @description
+     * Update the data of the room in firebase with the prop endedAT.
+     * If a room has this prop setted, it will not can be open again.
+     * After this, sends the user to Home Page.
+     */
+    async function handleEndRoom() {
+
+        const roomRef = ref( database, `rooms/${codeID}`);
+
+        /** @description Date of the room was ended.*/
+        const endedAt = new Date();
+
+        await update( roomRef, { endedAt } );
+
+        navigate('/');
+
+    }
 
 
 
@@ -110,7 +132,10 @@ function AdminRoom() {
                     <div>
                         <RoomCode code={codeID}/>
 
-                        <DefaultButton className="close-room">
+                        <DefaultButton 
+                            className="close-room"
+                            onClick={handleEndRoom}
+                        >
                             Encerrar sala
                         </DefaultButton>
                     </div>
