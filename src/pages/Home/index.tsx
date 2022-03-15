@@ -45,7 +45,8 @@ function Home() {
     /**
      * @description searches for a room on firebase database with the room code passed. 
      * If the room exists, the user will be redirected to this specific Room Page, if not,
-     * nothing happens.
+     * nothing happens. Also, if the room has a endedAt property setted, this means
+     * this room is already closed and the user cannot enter on it anymore.
      */
     async function handleJoinRoom(event: FormEvent) {
         event.preventDefault();

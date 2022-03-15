@@ -6,6 +6,26 @@
 
     padding: 1.5rem;
 
+
+    &.answered {
+
+        background-color: #dbdcdd;
+
+    }
+
+    &.highlighted {
+
+        background-color: #f4f0ff;
+        border: 1px solid var(--purple-color);
+
+        footer .user-info span {
+            color: var(--text-color);
+        }
+
+
+    }
+
+
     & + .question {
         margin-top: .5rem;
     }
@@ -39,6 +59,15 @@
             }
 
         }
+
+
+        > div {
+
+            display: flex;
+            gap: 1rem;
+
+        }
+        
 
         button {
             border: 0;
