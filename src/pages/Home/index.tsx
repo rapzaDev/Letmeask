@@ -76,7 +76,8 @@ function Home() {
             return;
         }
 
-        navigate(`/rooms/${roomCode}`); 
+        if ( firebaseRoomData.val().authorId === user?.id ) navigate(`/admin/rooms/${roomCode}`); 
+        else navigate(`/rooms/${roomCode}`); 
 
     }
 

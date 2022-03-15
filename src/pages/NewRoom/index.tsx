@@ -31,7 +31,8 @@ function NewRoom() {
     /** 
      * @description Creates a new room with the title choosen on form
      * and his owner identification ( the user id value
-     * of his google account), and redirects the user for this recently created Room Page.  
+     * of his google account), and redirects the user for this recently created Room Page
+     * with the admin view.  
      */
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
@@ -52,7 +53,7 @@ function NewRoom() {
             authorId: user?.id,
         });
 
-        navigate(`/rooms/${firebaseRoom.key}`); 
+        navigate(`/admin/rooms/${firebaseRoom.key}`); 
 
     }
 
