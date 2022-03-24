@@ -6,7 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 
 //FIREBASE
-import { ref, remove, update } from 'firebase/database';
+import { ref, remove, update, get } from 'firebase/database';
 import { database } from '../../services/firebase';
 
 //ASSETS
@@ -53,8 +53,9 @@ function AdminRoom() {
     const { user } = useAuth();
 
     //ROOM HOOK
-    const { questions, roomTitle } = useRoom( codeID );
+    const { questions, roomTitle, isAdmin } = useRoom( codeID );
 
+    
 
     /**
      * @description
@@ -119,8 +120,6 @@ function AdminRoom() {
 
     }
 
-
-
     function renderQuestions() {
 
         return (
@@ -169,45 +168,85 @@ function AdminRoom() {
 
     }
 
+    function backToHomePage() {
+        navigate('/');
+    }
+
+    function renderIsNotAdminModal() {
+        return(
+            <div className="authorization-message">
+                <p>Usuario não autorizado. Volte a página inicial.</p>
+                <DefaultButton onClick={backToHomePage}>Voltar</DefaultButton>
+            </div>
+        );
+    }
 
 
-    return(
-        <div id="page-room">
-            <header>
+    function renderAdminContentRoomPage() {
 
-                <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
-                    
-                    <div>
-                        <RoomCode code={codeID}/>
+        if ( isAdmin ) {
 
-                        <DefaultButton 
-                            className="close-room"
-                            onClick={handleEndRoom}
-                        >
-                            Encerrar sala
-                        </DefaultButton>
+            return (
+
+                <div id="page-room">
+                    <header>
+
+                        <div className="content">
+                            <img src={logoImg} alt="Letmeask" />
+                            
+                            <div>
+                                <RoomCode code={codeID}/>
+
+                                <DefaultButton 
+                                    className="close-room"
+                                    onClick={handleEndRoom}
+                                >
+                                    Encerrar sala
+                                </DefaultButton>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+                    <main className="main-content">
+
+                        <div className="room-title">
+                            <h1>Sala {roomTitle}</h1>
+                            { (questions.length > 0) && <span>{questions.length} pergunta(s)</span>}
+                        </div>
+
+
+                        <div className="questions-list">
+                            { renderQuestions() }
+                        </div>
+
+                    </main>
+                </div>
+
+            );
+
+        } else return (
+            <div id="page-room">
+                <header>
+                    <div className="content">
+                        <img src={logoImg} alt="Letmeask" />
                     </div>
+                </header>
 
-                </div>
+                {renderIsNotAdminModal()}
+            </div>
+        )
 
-            </header>
+        
 
-            <main className="main-content">
-
-                <div className="room-title">
-                    <h1>Sala {roomTitle}</h1>
-                    { (questions.length > 0) && <span>{questions.length} pergunta(s)</span>}
-                </div>
+    }
 
 
-                <div className="questions-list">
-                    { renderQuestions() }
-                </div>
 
-            </main>
-        </div>
-    );
+
+    return renderAdminContentRoomPage();
+
 };
 
 export { AdminRoom };

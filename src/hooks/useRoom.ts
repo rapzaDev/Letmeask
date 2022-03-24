@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "./useAuth";
 
 //FIREBASE
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, get } from 'firebase/database';
 import { database } from '../services/firebase';
 
 
@@ -59,7 +59,7 @@ export function useRoom( codeID: string ) {
     // FIREBASE STATES
     const [ roomTitle, setRoomTitle ] = useState('');
     const [ questions, setQuestions ] = useState<QuestionsType[]>([]);
-
+    const [ isAdmin, setIsAdmin ] = useState(false);
     
 
     /**
@@ -93,13 +93,25 @@ export function useRoom( codeID: string ) {
             setQuestions(parsedQuestions);
         });
 
+
+        async function checkIfUserIsAdmin() {
+            const firebaseRoomData = await get(roomRef); 
+
+            if (  firebaseRoomData.val().authorId === user?.id ) setIsAdmin(true);
+
+        }
+
+        checkIfUserIsAdmin();
+
         return () => {
             unsubscribe();
         }
 
     }, [ codeID, user?.id ]);
 
+    console.log(isAdmin);
 
-    return { questions, roomTitle };
+
+    return { questions, roomTitle, isAdmin };
 
 }
