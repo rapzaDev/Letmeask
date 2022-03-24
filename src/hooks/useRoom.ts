@@ -61,6 +61,13 @@ export function useRoom( codeID: string ) {
     const [ questions, setQuestions ] = useState<QuestionsType[]>([]);
     const [ isAdmin, setIsAdmin ] = useState(false);
     
+    async function checkIfUserIsAdmin() {
+        const roomRef = ref(database, `rooms/${codeID}`);
+
+        const firebaseRoomData = await get(roomRef); 
+
+        if (  firebaseRoomData.val().authorId === user?.id ) setIsAdmin(true);
+    }
 
     /**
      * @description Keep tracking the data on firebase and every time that data changes
@@ -93,14 +100,6 @@ export function useRoom( codeID: string ) {
             setQuestions(parsedQuestions);
         });
 
-
-        async function checkIfUserIsAdmin() {
-            const firebaseRoomData = await get(roomRef); 
-
-            if (  firebaseRoomData.val().authorId === user?.id ) setIsAdmin(true);
-
-        }
-
         checkIfUserIsAdmin();
 
         return () => {
@@ -108,8 +107,6 @@ export function useRoom( codeID: string ) {
         }
 
     }, [ codeID, user?.id ]);
-
-    console.log(isAdmin);
 
 
     return { questions, roomTitle, isAdmin };
