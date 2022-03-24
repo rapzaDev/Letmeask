@@ -97,27 +97,37 @@
 
                 }
 
-                > span {
-                    display: flex;
-                    align-items: center;
-
-                    font-size: 14px;
-                    color: #737380;
-                    font-weight: 500;
-
-                    button {
+                .visitor {
+                    span {
                         display: flex;
-
-                        background: transparent;
-                        padding: 0;
-                        padding-left: 3px;
-
-                        color: var(--purple-color);
-                        text-decoration: underline;
+                        align-items: center;
+    
                         font-size: 14px;
+                        color: #737380;
                         font-weight: 500;
-                    }
+    
+                        button {
+                            display: flex;
+                            border: 0;
 
+                            cursor: pointer;
+    
+                            background: transparent;
+                            padding: 0;
+                            padding-left: 3px;
+    
+                            color: var(--purple-color);
+                            text-decoration: underline;
+                            font-size: 14px;
+                            font-weight: 500;
+                        
+                            transition: filter 0.2s linear;
+                            &:hover {
+                                filter: brightness(0.7);
+                            }
+                        }
+    
+                    }
                 }
 
                 button {

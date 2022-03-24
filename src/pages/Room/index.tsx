@@ -44,7 +44,7 @@ function Room() {
     const codeID = params.id as string;
 
     //USER AUTHENTICATION HOOK
-    const { user } = useAuth();
+    const { user, signInWithGoogle } = useAuth();
 
     //ROOM HOOK
     const { questions, roomTitle } = useRoom( codeID );
@@ -117,7 +117,9 @@ function Room() {
             
     }
 
-
+    async function handleCreateRoom() {
+        await signInWithGoogle();
+    }
 
     /**
      * @description 
@@ -133,7 +135,13 @@ function Room() {
                     <span>{user.name}</span>
                 </div>
             );
-        } else return <span>Para enviar uma pergunta, <button>faça seu login.</button></span> ;
+        } else {
+            return (
+                <div className="visitor">
+                    <span>Para enviar uma pergunta, <button onClick={handleCreateRoom}>faça seu login.</button></span> 
+                </div>
+            );
+        }
     
     }
 
