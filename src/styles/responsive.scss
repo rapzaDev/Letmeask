@@ -1,0 +1,77 @@
+@media (max-width: 430px) {
+
+    #page-room {
+        width: 98vw;
+    }
+    
+    #page-room h1 {        
+        font-size: 0.1rem;
+        width: 50vw;
+        text-align: center;
+    }
+
+    #page-room .content {
+        flex-direction: column;
+
+        > img {
+            margin-bottom: 1.3rem;
+        }
+
+    }
+
+    #page-room {
+
+        button {
+            font-size: 0.875rem;
+        }
+
+    }
+
+}
+
+@media (max-width: 390px) { 
+
+    #page-room main form .form-footer .user-info span {
+
+        font-size: 0.75rem;
+
+    }
+
+    #page-room {
+
+        button {
+            font-size: 0.75rem;
+        }
+
+    }
+
+}
+
+
+@media (max-width: 345px) { 
+
+    #page-room .question p {
+        font-size: 0.85rem;
+    }
+
+    #page-room main .room-title {
+        h1 {
+            font-size: 1.1rem;
+        }
+
+        span {
+            font-size: 0.75rem;
+        }
+    }
+
+    #page-room main form .form-footer {
+
+        flex-direction: column;
+
+        .user-info {
+            margin-bottom: 1.3rem;
+        }
+
+    }
+
+}
