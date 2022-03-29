@@ -1,3 +1,231 @@
+// Media queries for Home Page and New Room Page
+@media (max-width: 1260px) {
+
+    #page-auth aside {
+
+        strong {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+    }
+}
+
+@media (max-width: 1145px) {
+    #page-auth aside {
+        flex: 5;
+
+        img {
+            max-width: 15rem;
+        }
+
+    }
+}
+
+@media (max-width: 790px) {
+    #page-auth {
+        flex-direction: column;
+
+        main {
+            padding: 4rem 0;
+        }
+    }
+}
+
+@media (max-width: 590px) {
+
+    #page-auth aside {
+
+        strong {
+            font-size: 1.7rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+    }
+
+}
+
+@media (max-width: 525px) {
+    #page-auth aside {
+
+        padding: 7.5rem 4rem;
+
+        strong {
+            font-size: 1.5rem;
+            width: fit-content;
+        }
+
+        p {
+            font-size: 1rem;
+            width: fit-content;
+        }
+
+    }
+}
+
+@media (max-width: 470px) {
+
+    #page-auth aside {
+        padding: 7.5rem 2.5rem;
+    }
+
+}
+
+@media (max-width: 420px) {
+    #page-auth aside {
+        padding: 7.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 390px) {
+    #page-auth {
+
+        aside {
+            strong {
+                font-size: 1.35rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+
+        main {
+            padding: 4rem 2rem;
+        }
+
+        main .main-content {
+
+            >img {
+                width: 8rem;
+            }
+
+            .google-button {
+                margin-top: 3rem;
+            }
+
+            button {
+                font-size: 0.85rem;
+            }
+
+            p {
+                font-size: 0.75rem;
+            }
+
+            
+
+        }
+
+    }
+}
+
+@media (max-width: 340px) {
+    #page-auth {
+
+        aside {
+            padding: 4.5rem 1.5rem;
+
+            >img {
+                width: 13rem;
+            }
+
+            strong {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.75rem;
+            }
+        }
+
+        main .main-content {
+
+            >img {
+                width: 7rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .google-button {
+                margin-top: 2.5rem;
+            }
+
+            button {
+                font-size: 0.75rem;
+            }
+
+            .separator {
+                font-size: 0.75rem;
+            }
+
+            form input {
+                font-size: 0.75rem;
+            }
+
+            p {
+                margin-top: 1.3rem;
+                font-size: 0.65rem;
+            }
+
+        }
+
+    }
+}
+
+@media (max-width: 310px) {
+    #page-auth {
+
+        aside {
+            padding: 4rem 1.5rem;
+
+            >img {
+                width: 12rem;
+            }
+
+            strong {
+                font-size: 1rem;
+            }
+        }
+
+        main .main-content {
+
+            >img {
+                width: 7rem;
+            }
+
+            .google-button img {
+                width: 1.2rem;
+            }
+
+            button {
+                font-size: 0.65rem;
+            }
+
+            .separator {
+                font-size: 0.65rem;
+            }
+
+            form input {
+                font-size: 0.65rem;
+            }
+
+        }
+
+    }
+} 
+
+
+
+// Media queries for Admin and Room Pages
+
 @media (max-width: 580px) {
     #page-room .content {
         flex-direction: column;
