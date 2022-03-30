@@ -21,7 +21,6 @@
         img {
             max-width: 15rem;
         }
-
     }
 }
 
@@ -222,9 +221,13 @@
     }
 } 
 
-
-
 // Media queries for Admin and Room Pages
+@media (max-width: 900px) {
+    #page-room main {
+        width: 100vw;
+        padding: 0 1rem;
+    }
+}
 
 @media (max-width: 580px) {
     #page-room .content {
@@ -239,42 +242,46 @@
 
 @media (max-width: 445px) {
 
-    #page-room header .content >div .close-room {
-        font-size: 0.7rem;
+    #page-room header .content >div { 
+        flex-direction: column;
+    }
+
+    #page-room header .content {
+        button {
+            width: 80vw;
+        }
+    }
+
+    #page-room header .content >div #default-button {
+        font-size: 0.8rem;
     }
 
     #page-room header .content span {
         font-size: 0.8rem;
     }
 
-}
-
-
-@media (max-width: 430px) {
-
-    #page-room header .content {
-        button {
-            width: 80vw;
-
-            span {
-                font-size: 0.73rem;
-            }
-
+    #page-room main form {
+        textarea {
+            font-size: 0.85rem;
         }
     }
 
-    #page-room header .content >div { 
-        flex-direction: column;
+    #page-room main .room-title {
+        h1 {
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        span {
+            font-size: 0.75rem;
+        }
     }
 
+}
+
+@media (max-width: 430px) {
     #page-room {
         width: 98vw;
-    }
-    
-    #page-room h1 {        
-        font-size: 0.1rem;
-        width: 50vw;
-        text-align: center;
     }
 
     #page-room {
@@ -284,7 +291,6 @@
         }
 
     }
-
 }
 
 @media (max-width: 390px) { 
@@ -353,11 +359,11 @@
 
     #page-room main .room-title {
         h1 {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
         }
 
         span {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
         }
     }
 
@@ -409,6 +415,6 @@
     }
 
     #page-room .user-info span {
-        margin-left: 0;
+        margin-left: 0.15rem;
     }
 }
