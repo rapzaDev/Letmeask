@@ -1,5 +1,6 @@
-#page-room {
+import styled from 'styled-components';
 
+export const PageRoomContainer = styled.div`
     header {
 
         padding: 24px;
@@ -31,7 +32,7 @@
                 align-items: center;
                 gap: 1rem;
                 
-                .close-room {
+                #default-button {
                     align-items: center;
 
                     padding: 0.625rem;
@@ -212,5 +213,4 @@
         }
 
     }
-
-}
+`;

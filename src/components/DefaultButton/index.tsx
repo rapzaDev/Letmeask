@@ -1,14 +1,14 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-import './styles.scss';
+import { DefaultButtonComponent } from './styles';
 
 type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-function DefaultButton ( { children, ...rest }: DefaultButtonProps) {
+function DefaultButton ({ children, ...rest }: DefaultButtonProps) {
     return (
-        <button id="default-button" {...rest} >
+        <DefaultButtonComponent id="default-button" {...rest} >
             {children}
-        </button>
+        </DefaultButtonComponent>
     );
 };
 

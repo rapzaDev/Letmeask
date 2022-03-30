@@ -1,4 +1,6 @@
-#page-auth {
+import styled from 'styled-components';
+
+export const Container = styled.div`
     display: flex;
     align-items: stretch;
     height: 100vh;
@@ -13,7 +15,7 @@
         flex-direction: column;
         justify-content: center;
 
-        padding: 120px 80px;
+        padding: 7.5rem 5rem;
 
         img {
             max-width: 320px;
@@ -61,13 +63,16 @@
             align-self: center;
         }
 
-        h2 {
-            margin-top: 3.5rem;
-            margin-bottom: 1.5rem;
-
-            font-size: 1.5rem;
-
-            font-family: 'Poppins', sans-serif;
+        .google-button {
+            margin-top: 64px;
+    
+            background: var(--google-button-color);
+            color: #fff;
+    
+            img {
+                margin-right: 8px;
+            }
+    
         }
 
         form {
@@ -95,20 +100,31 @@
 
         }
 
-        p {
-            font-size: 0.87rem;
+    }
 
-            color: var(--create-room-link-text-color);
-            
-            margin-top: 1rem;
-            align-items: center;
+    .separator {
+        font-size: 14px;
+        color: var(--light-grey-color);
 
-            a {
-                color: var(--link-color);
-            }
+        margin: 32px 0;
+        display: flex;
+        align-items: center;
 
+        &::before {
+            content: '';
+            flex: 1; //to ocuppy a flexible size
+            height: 1px;
+            background-color: var(--light-grey-color);
+            margin-right: 16px;
+        }
+
+        &::after {
+            content: '';
+            flex: 1; //to ocuppy a flexible size
+            height: 1px;
+            background-color: var(--light-grey-color);
+            margin-left: 16px;
         }
 
     }
-
-}
+`;

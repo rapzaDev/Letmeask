@@ -18,7 +18,7 @@ import { RoomCode } from '../../components/RoomCode';
 import Question from '../../components/Question';
 
 //STYLES
-import './styles.scss';
+import { PageRoomContainer } from './styles';
 
 
 type RoomParams = {
@@ -189,7 +189,7 @@ function Room() {
 
 
     return(
-        <div id="page-room">
+        <PageRoomContainer id="page-room">
             <header>
                 <div className="content">
                     <img src={logoImg} alt="Letmeask" />
@@ -228,7 +228,7 @@ function Room() {
                 </div>
 
             </main>
-        </div>
+        </PageRoomContainer>
     );
 };
 

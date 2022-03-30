@@ -1,4 +1,6 @@
-.room-code {
+import styled from 'styled-components';
+
+export const RoomCodeButton = styled.button`
     display: flex;
     justify-content: space-between;
 
@@ -39,5 +41,4 @@
         font-size: 14px;
         font-weight: 500;
     }
-
-}
+`;

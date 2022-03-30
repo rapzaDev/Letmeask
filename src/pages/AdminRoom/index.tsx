@@ -22,7 +22,7 @@ import { RoomCode } from '../../components/RoomCode';
 import Question from '../../components/Question';
 
 //STYLES
-import './styles.scss';
+import { PageRoomContainer } from './styles';
 
 
 type RoomParams = {
@@ -188,7 +188,7 @@ function AdminRoom() {
 
             return (
 
-                <div id="page-room">
+                <PageRoomContainer id="page-room">
                     <header>
 
                         <div className="content">
@@ -222,12 +222,12 @@ function AdminRoom() {
                         </div>
 
                     </main>
-                </div>
+                </PageRoomContainer>
 
             );
 
         } else return (
-            <div id="page-room">
+            <PageRoomContainer id="page-room">
                 <header>
                     <div className="content">
                         <img src={logoImg} alt="Letmeask" />
@@ -235,7 +235,7 @@ function AdminRoom() {
                 </header>
 
                 {renderIsNotAdminModal()}
-            </div>
+            </PageRoomContainer>
         )
 
         

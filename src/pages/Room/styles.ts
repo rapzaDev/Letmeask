@@ -1,5 +1,6 @@
-#page-room {
+import styled from 'styled-components';
 
+export const PageRoomContainer = styled.div`
     header {
 
         padding: 1.5rem;
@@ -33,6 +34,7 @@
     main {
         width: 90vw;
         margin: 0 auto;
+        padding-bottom: 3rem;
 
         .room-title {
             margin: 2rem 0 1.5rem;
@@ -99,21 +101,21 @@
                     span {
                         display: flex;
                         align-items: center;
-    
+
                         font-size: 0.875rem;
                         color: #737380;
                         font-weight: 500;
-    
+
                         button {
                             display: flex;
                             border: 0;
 
                             cursor: pointer;
-    
+
                             background: transparent;
                             padding: 0;
                             padding-left: 3px;
-    
+
                             color: var(--purple-color);
                             text-decoration: underline;
                             font-size: 0.875rem;
@@ -124,7 +126,7 @@
                                 filter: brightness(0.7);
                             }
                         }
-    
+
                     }
                 }
 
@@ -145,5 +147,4 @@
         }
 
     }
-
-}
+`;

@@ -1,7 +1,6 @@
 import React from 'react';
 
-//STYLES
-import './styles.scss';
+import { Container } from './styles';
 
 type QuestionProps = {
     content: string;
@@ -24,7 +23,7 @@ function Question({
 
     return(
 
-        <div 
+        <Container 
             className={`question ${isAnswered ? 'answered' : ''} ${ (isHighlighted  && !isAnswered) ? 'highlighted' : ''} `}
         >
             <p>{content}</p>
@@ -40,7 +39,7 @@ function Question({
 
             </footer>
 
-        </div>
+        </Container>
 
     );
 

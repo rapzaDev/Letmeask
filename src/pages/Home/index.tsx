@@ -17,7 +17,8 @@ import googleIconImg from '../../assets/images/google-icon.svg';
 import { DefaultButton } from '../../components/DefaultButton';
 
 //STYLES
-import './styles.scss';
+// import './styles.scss';
+import { Container } from './styles';
 
 
 
@@ -82,7 +83,7 @@ function Home() {
     }
 
     return(
-        <div id="page-auth" >
+        <Container id="page-auth" >
 
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
@@ -121,7 +122,7 @@ function Home() {
                     </form>
                 </div>
             </main>
-        </div>
+        </Container>
     );
 }
 

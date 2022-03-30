@@ -1,7 +1,10 @@
-#page-auth {
+import styled from 'styled-components';
+
+export const Container = styled.div`
     display: flex;
     align-items: stretch;
     height: 100vh;
+    width: 100vw;
 
     aside {
         flex: 7;
@@ -13,7 +16,7 @@
         flex-direction: column;
         justify-content: center;
 
-        padding: 7.5rem 5rem;
+        padding: 120px 80px;
 
         img {
             max-width: 320px;
@@ -61,16 +64,13 @@
             align-self: center;
         }
 
-        .google-button {
-            margin-top: 64px;
-    
-            background: var(--google-button-color);
-            color: #fff;
-    
-            img {
-                margin-right: 8px;
-            }
-    
+        h2 {
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+
+            font-size: 1.5rem;
+
+            font-family: 'Poppins', sans-serif;
         }
 
         form {
@@ -98,32 +98,19 @@
 
         }
 
-    }
+        p {
+            font-size: 0.87rem;
 
-    .separator {
-        font-size: 14px;
-        color: var(--light-grey-color);
+            color: var(--create-room-link-text-color);
+            
+            margin-top: 1rem;
+            align-items: center;
 
-        margin: 32px 0;
-        display: flex;
-        align-items: center;
+            a {
+                color: var(--link-color);
+            }
 
-        &::before {
-            content: '';
-            flex: 1; //to ocuppy a flexible size
-            height: 1px;
-            background-color: var(--light-grey-color);
-            margin-right: 16px;
-        }
-
-        &::after {
-            content: '';
-            flex: 1; //to ocuppy a flexible size
-            height: 1px;
-            background-color: var(--light-grey-color);
-            margin-left: 16px;
         }
 
     }
-
-}
+`;
