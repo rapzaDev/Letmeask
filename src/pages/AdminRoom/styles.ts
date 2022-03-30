@@ -4,10 +4,10 @@ export const PageRoomContainer = styled.div`
     header {
 
         padding: 24px;
-        border-bottom: 1px solid #e2e2e2;
+        border-bottom: 1px solid ${(props) => props.theme.colors.headerBorder};
 
         .content {
-            max-width: 1120px;
+            max-width: 70rem;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -38,10 +38,10 @@ export const PageRoomContainer = styled.div`
                     padding: 0.625rem;
 
                     height: 2.5rem;
-                    border: 1px solid var(--purple-color);
+                    border: 1px solid ${(props) => props.theme.colors.primary};
 
-                    background-color: #fff;
-                    color: var(--purple-color);
+                    background-color: ${(props) => props.theme.colors.roomCodeBackground};
+                    color: ${(props) => props.theme.colors.primary};
                     
                     font-size: 0.875rem;
 
@@ -70,94 +70,20 @@ export const PageRoomContainer = styled.div`
             h1 {
                 font-family: 'Poppins', sans-serif;
                 font-size: 24px;
-                color: var(--text-color);
+                color: ${(props) => props.theme.colors.text};
             }
 
             span {
                 margin-left: 16px;
-                background: #e559f9;
+                background: ${(props) => props.theme.colors.secundary};
                 border-radius: 9999px;
                 padding: 8px 16px;
-                color: #fff;
+                color: ${(props) => props.theme.colors.numberQuestions};
                 font-weight: 500;
                 font-size: 14px;
             }
 
         }
-
-        form {
-
-            textarea {
-                width: 100%;
-                border: 0;
-                padding: 16px;
-                border-radius: 8px;
-                background: #fefefe;
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-                resize: vertical;
-                min-height: 130px;
-            }
-
-            .form-footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 16px;
-
-                .user-info {
-                    display: flex;
-                    align-items: center;
-
-                    img {
-                        width: 32px;
-                        height: 32px;
-                        border-radius: 50%;
-                    }
-
-                    span {
-                        margin-left: 8px;
-                        color: var(--text-color);
-                        
-                        font-weight: 500;
-                        font-size: 14px;
-                    }
-
-                }
-
-                > span {
-                    display: flex;
-                    align-items: center;
-
-                    font-size: 14px;
-                    color: #737380;
-                    font-weight: 500;
-
-                    button {
-                        display: flex;
-
-                        background: transparent;
-                        padding: 0;
-                        padding-left: 3px;
-
-                        color: var(--purple-color);
-                        text-decoration: underline;
-                        font-size: 14px;
-                        font-weight: 500;
-                    }
-
-                }
-
-                button {
-                    background: var(--purple-color);
-                    color: #fff;
-
-                    font-weight: 500;
-                }
-
-            }
-
-        }     
-        
         
         .questions-list {
             margin-top: 2rem;
@@ -178,7 +104,7 @@ export const PageRoomContainer = styled.div`
         padding: 0 2rem;
         margin-top: 7rem;
 
-        background-color: #F5F5F5;
+        background-color: ${(props) => props.theme.colors.authorizationBackground};
         border-radius: .5rem;
         box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.69);
 
@@ -190,8 +116,8 @@ export const PageRoomContainer = styled.div`
             font-family: 'Poppins', sans-serif;
             font-size: 1.3rem;
 
-            background-color: var(--purple-color);
-            color: #fefefe;
+            background-color: ${(props) => props.theme.colors.primary};
+            color: ${(props) => props.theme.colors.authorization};
 
             border-radius: .5rem;
 
@@ -206,9 +132,9 @@ export const PageRoomContainer = styled.div`
         }
 
         button {
-            background-color: var(--purple-color);
+            background-color: ${(props) => props.theme.colors.primary};
             font-family: 'Poppins', sans-serif;
-            color: #fefefe;
+            color: ${(props) => props.theme.colors.authorization};
             width: 15rem;
         }
 

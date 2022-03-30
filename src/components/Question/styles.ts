@@ -18,10 +18,10 @@ export const Container = styled.div`
     &.highlighted {
 
         background-color: #f4f0ff;
-        border: 1px solid var(--purple-color);
+        border: 1px solid ${(props) => props.theme.colors.primary};
 
         footer .user-info span {
-            color: var(--text-color);
+            color: ${(props) => props.theme.colors.text};
         }
 
 
@@ -34,7 +34,7 @@ export const Container = styled.div`
 
 
     p {
-        color: var(--text-color);
+        color: ${(props) => props.theme.colors.text};
     }
 
     footer {
@@ -56,7 +56,7 @@ export const Container = styled.div`
 
             span {
                 margin-left: 8px;
-                color: var(--create-room-link-text-color);
+                color: ${(props) => props.theme.colors.primaryGrey};
                 font-size: 14px;
             }
 
@@ -86,16 +86,16 @@ export const Container = styled.div`
                 display: flex;
                 align-items: flex-end;
 
-                color: #737380;
+                color: ${(props) => props.theme.colors.primaryGrey};
 
                 gap: 0.5rem;
 
 
                 &.liked {
-                    color: var(--purple-color);
+                    color: ${(props) => props.theme.colors.primary};
 
                     svg path {
-                        stroke: var(--purple-color);
+                        stroke: ${(props) => props.theme.colors.primary};
                     }
 
                 }

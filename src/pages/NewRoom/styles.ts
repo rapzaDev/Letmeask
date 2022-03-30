@@ -9,8 +9,8 @@ export const Container = styled.div`
     aside {
         flex: 7;
 
-        background-color: var(--purple-color);
-        color: #fff;
+        background-color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.asideText};
 
         display: flex;
         flex-direction: column;
@@ -35,7 +35,7 @@ export const Container = styled.div`
            
            margin-top: 16px;
 
-           color: var(--default-color);
+           color: ${(props) => props.theme.colors.background};
         }
 
     }
@@ -80,16 +80,16 @@ export const Container = styled.div`
                 border-radius: 8px;
 
                 padding: 0 16px;
-                background: #fff;
+                background: ${(props) => props.theme.colors.formBackground};
 
-                border: 1px solid var(--light-grey-color);
+                border: 1px solid ${(props) => props.theme.colors.secundaryGrey};
             }
 
             .submit-button {
                 margin-top: 16px;
 
-                background-color: var(--purple-color);
-                color: #fff;
+                background-color: ${(props) => props.theme.colors.primary};
+                color: ${(props) => props.theme.colors.white};
             }
 
             input, button {
@@ -101,13 +101,13 @@ export const Container = styled.div`
         p {
             font-size: 0.87rem;
 
-            color: var(--create-room-link-text-color);
+            color: ${(props) => props.theme.colors.primaryGrey};
             
             margin-top: 1rem;
             align-items: center;
 
             a {
-                color: var(--link-color);
+                color: ${(props) => props.theme.colors.secundary};
             }
 
         }

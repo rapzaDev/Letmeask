@@ -7,8 +7,8 @@ export const RoomCodeButton = styled.button`
     height: 40px;
     overflow: hidden;
 
-    background: #fff;
-    border: 1px solid var(--purple-color);
+    background: ${(props) => props.theme.colors.roomCodeBackground};
+    border: 1px solid ${(props) => props.theme.colors.primary};
     border-radius: 0.5rem;
 
 
@@ -28,7 +28,7 @@ export const RoomCodeButton = styled.button`
 
         padding: 0 12px;
 
-        background-color: var(--purple-color);
+        background-color: ${(props) => props.theme.colors.primary};
     }
 
     span {

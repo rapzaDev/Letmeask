@@ -4,17 +4,17 @@ export const PageRoomContainer = styled.div`
     header {
 
         padding: 1.5rem;
-        border-bottom: 1px solid #e2e2e2;
+        border-bottom: 1px solid ${(props) => props.theme.colors.headerBorder};
 
         .content {
-            width: 90vw;
+            max-width: 70rem;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             > img {
-                max-height: 2,8125rem;
+                max-height: 2.8125rem;
             }
 
             button {
@@ -32,7 +32,7 @@ export const PageRoomContainer = styled.div`
     }
 
     main {
-        width: 90vw;
+        max-width: 50rem;
         margin: 0 auto;
         padding-bottom: 3rem;
 
@@ -48,10 +48,10 @@ export const PageRoomContainer = styled.div`
 
             span {
                 margin-left: 1rem;
-                background: #e559f9;
+                background: ${(props) => props.theme.colors.secundary};
                 border-radius: 9999px;
                 padding: 0.5rem 1rem;
-                color: #fff;
+                color: ${(props) => props.theme.colors.numberQuestions};
                 font-weight: 500;
                 font-size: 0,875rem;
             }
@@ -65,7 +65,7 @@ export const PageRoomContainer = styled.div`
                 border: 0;
                 padding: 1rem;
                 border-radius: 0.5rem;
-                background: #fefefe;
+                background: ${(props) => props.theme.colors.formBackground};
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
                 resize: vertical;
                 min-height: 8.125rem;
@@ -89,7 +89,7 @@ export const PageRoomContainer = styled.div`
 
                     span {
                         margin-left: 0.5rem;
-                        color: var(--text-color);
+                        color: ${(props) => props.theme.colors.text};
                         
                         font-weight: 500;
                         font-size: 0.875rem;
@@ -103,7 +103,7 @@ export const PageRoomContainer = styled.div`
                         align-items: center;
 
                         font-size: 0.875rem;
-                        color: #737380;
+                        color: ${(props) => props.theme.colors.primaryGrey};
                         font-weight: 500;
 
                         button {
@@ -116,7 +116,7 @@ export const PageRoomContainer = styled.div`
                             padding: 0;
                             padding-left: 3px;
 
-                            color: var(--purple-color);
+                            color: ${(props) => props.theme.colors.primary};
                             text-decoration: underline;
                             font-size: 0.875rem;
                             font-weight: 500;
@@ -131,8 +131,8 @@ export const PageRoomContainer = styled.div`
                 }
 
                 button {
-                    background: var(--purple-color);
-                    color: #fff;
+                    background: ${(props) => props.theme.colors.primary};
+                    color: ${(props) => props.theme.colors.white};
 
                     font-weight: 500;
                 }

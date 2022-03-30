@@ -8,8 +8,8 @@ export const Container = styled.div`
     aside {
         flex: 7;
 
-        background-color: var(--purple-color);
-        color: #fff;
+        background-color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.asideText};
 
         display: flex;
         flex-direction: column;
@@ -34,7 +34,7 @@ export const Container = styled.div`
            
            margin-top: 16px;
 
-           color: var(--default-color);
+           color: ${(props) => props.theme.colors.background};
         }
 
     }
@@ -66,8 +66,8 @@ export const Container = styled.div`
         .google-button {
             margin-top: 64px;
     
-            background: var(--google-button-color);
-            color: #fff;
+            background: ${(props) => props.theme.colors.googleButton};
+            color: ${(props) => props.theme.colors.white};
     
             img {
                 margin-right: 8px;
@@ -82,16 +82,16 @@ export const Container = styled.div`
                 border-radius: 8px;
 
                 padding: 0 16px;
-                background: #fff;
+                background: ${(props) => props.theme.colors.formBackground};
 
-                border: 1px solid var(--light-grey-color);
+                border: 1px solid ${(props) => props.theme.colors.secundaryGrey};
             }
 
             .submit-button {
                 margin-top: 16px;
 
-                background-color: var(--purple-color);
-                color: #fff;
+                background-color: ${(props) => props.theme.colors.primary};
+                color: ${(props) => props.theme.colors.white};
             }
 
             input, button {
@@ -104,7 +104,7 @@ export const Container = styled.div`
 
     .separator {
         font-size: 14px;
-        color: var(--light-grey-color);
+        color: ${(props) => props.theme.colors.secundaryGrey};
 
         margin: 32px 0;
         display: flex;
@@ -114,7 +114,7 @@ export const Container = styled.div`
             content: '';
             flex: 1; //to ocuppy a flexible size
             height: 1px;
-            background-color: var(--light-grey-color);
+            background-color: ${(props) => props.theme.colors.secundaryGrey};
             margin-right: 16px;
         }
 
@@ -122,7 +122,7 @@ export const Container = styled.div`
             content: '';
             flex: 1; //to ocuppy a flexible size
             height: 1px;
-            background-color: var(--light-grey-color);
+            background-color: ${(props) => props.theme.colors.secundaryGrey};
             margin-left: 16px;
         }
 
