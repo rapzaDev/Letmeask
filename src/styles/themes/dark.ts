@@ -15,12 +15,12 @@ export default {
 
         headerBorder: '#2B272B',
         numberQuestions: '#fff',
-        authorization: '#fefefe',
+        authorization: '#e55ef9',
         white: '#fff',
 
         background: '#201D20',
         roomCodeBackground: '#403A40',
-        authorizationBackground: '#F5F5F5',
+        authorizationBackground: '#2B272B',
         formBackground: '#2B272B',
 
         text: '#F5F4F6',

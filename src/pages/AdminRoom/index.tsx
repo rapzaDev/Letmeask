@@ -176,7 +176,7 @@ function AdminRoom() {
     function renderIsNotAdminModal() {
         return(
             <div className="authorization-message">
-                <p>Usuario não autorizado. Volte a página inicial.</p>
+                <p>Usuario não autorizado.</p>
                 <DefaultButton onClick={backToHomePage}>Voltar</DefaultButton>
             </div>
         );

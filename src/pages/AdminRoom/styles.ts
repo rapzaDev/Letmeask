@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const PageRoomContainer = styled.div`
     main {
@@ -47,9 +48,14 @@ export const PageRoomContainer = styled.div`
         padding: 0 2rem;
         margin-top: 7rem;
 
-        background-color: ${(props) => props.theme.colors.authorizationBackground};
         border-radius: .5rem;
-        box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.69);
+
+        background-color: ${(props) => props.theme.colors.authorizationBackground};
+
+        box-shadow: ${(props) => props.theme.title === 'light' 
+            ? '0px 4px 35px rgba(168, 172, 176, 0.69)'
+            : '0px 1px 1px rgba(168, 172, 176, 0.1)'
+        };
 
         width: auto;
         height: 20rem;
@@ -59,8 +65,12 @@ export const PageRoomContainer = styled.div`
             font-family: 'Poppins', sans-serif;
             font-size: 1.3rem;
 
-            background-color: ${(props) => props.theme.colors.primary};
-            color: ${(props) => props.theme.colors.authorization};
+            background-color: ${(props) => props.theme.title === 'light' 
+                ? shade(0.3, props.theme.colors.primary)
+                : shade(0.5, props.theme.colors.roomCodeBackground)
+            };
+
+            color: ${(props) => shade(0.2, props.theme.colors.authorization)};
 
             border-radius: .5rem;
 
@@ -75,9 +85,14 @@ export const PageRoomContainer = styled.div`
         }
 
         button {
-            background-color: ${(props) => props.theme.colors.primary};
+            background-color: ${(props) => props.theme.title === 'light' 
+                ? shade(0.3, props.theme.colors.primary)
+                : shade(0.5, props.theme.colors.roomCodeBackground)
+            };
+
             font-family: 'Poppins', sans-serif;
-            color: ${(props) => props.theme.colors.authorization};
+
+            color: ${(props) => shade(0.2, props.theme.colors.authorization)};
             width: 15rem;
         }
 
