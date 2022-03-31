@@ -3,8 +3,10 @@ import styled from 'styled-components';
 export const PageRoomContainer = styled.div`
     main {
         max-width: 50rem;
+        height: fit-content;
         margin: 0 auto;
         padding-bottom: 3rem;
+
 
         .room-title {
             margin: 2rem 0 1.5rem;

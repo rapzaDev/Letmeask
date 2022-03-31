@@ -101,8 +101,10 @@
 
         main .main-content {
 
-            >img {
-                width: 8rem;
+            .image-and-switcher {
+                img {
+                    width: 8rem;
+                }
             }
 
             .google-button {
@@ -145,8 +147,10 @@
 
         main .main-content {
 
-            >img {
-                width: 7rem;
+            .image-and-switcher {
+                img {
+                    width: 7rem;
+                }
             }
 
             h2 {
@@ -195,11 +199,6 @@
         }
 
         main .main-content {
-
-            >img {
-                width: 7rem;
-            }
-
             .google-button img {
                 width: 1.2rem;
             }
@@ -225,16 +224,49 @@
 @media (max-width: 900px) {
     #page-room main {
         width: 100vw;
-        padding: 0 1rem;
+        padding: 3rem 1rem;
+    }
+
+    #page-room #authorization-message {
+        width: 80vw;
+        
+        p {
+            max-width: 90%;
+            font-size: 1rem;
+        }
+
+        button {
+            font-size: 1rem;
+        }
+
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 690px) {
+    #page-room #authorization-message {
+        p {
+            padding: 2rem 0;
+        }
+    }
+}
+
+@media (max-width: 640px) {
     #page-room .content {
         flex-direction: column;
 
-        > img {
-            margin-bottom: 1.3rem;
+        .image-and-switcher {
+            margin-bottom: 1.5rem;
+        }
+
+    }
+}
+
+@media (max-width: 540px) {
+    #page-room .content {
+        flex-direction: column;
+
+        .image-and-switcher {
+            margin-bottom: 1.5rem;
         }
 
     }
@@ -242,7 +274,7 @@
 
 @media (max-width: 445px) {
 
-    #page-room header .content >div { 
+    #page-room header .content div { 
         flex-direction: column;
     }
 
@@ -277,6 +309,16 @@
         }
     }
 
+    #page-room #authorization-message {
+        p {
+            font-size: 0.85rem;
+        }
+
+        button {
+            font-size: 0.85rem;
+        }
+    }
+
 }
 
 @media (max-width: 430px) {
@@ -290,6 +332,16 @@
             font-size: 0.875rem;
         }
 
+    }
+
+    #page-room #authorization-message {
+        p {
+            width: 55vw;
+        }
+
+        button {
+            width: 55vw;
+        }
     }
 }
 
@@ -327,8 +379,17 @@
 
     }
 
-}
+    #page-room #authorization-message {
+        p {
+            font-size: 0.7rem;
+        }
 
+        button {
+            font-size: 0.7rem;
+        }
+    }
+
+}
 
 @media (max-width: 345px) { 
 
@@ -416,5 +477,5 @@
 
     #page-room .user-info span {
         margin-left: 0.15rem;
-    }
+    }    
 }

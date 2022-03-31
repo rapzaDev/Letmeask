@@ -5,6 +5,7 @@ export const PageRoomContainer = styled.div`
     main {
         max-width: 800px;
         margin: 0 auto;
+        padding-bottom: 3rem;
 
         .room-title {
             margin: 32px 0 24px;
@@ -35,7 +36,7 @@ export const PageRoomContainer = styled.div`
     }
 
 
-    .authorization-message {
+    #authorization-message {
         max-width: 800px;
         margin: 0 auto;
         
