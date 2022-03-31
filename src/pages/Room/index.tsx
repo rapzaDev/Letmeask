@@ -16,6 +16,7 @@ import logoImg from '../../assets/images/logo.svg';
 import { DefaultButton } from '../../components/DefaultButton';
 import { RoomCode } from '../../components/RoomCode';
 import Question from '../../components/Question';
+import Header from '../../components/Header';
 
 //STYLES
 import { PageRoomContainer } from './styles';
@@ -186,16 +187,11 @@ function Room() {
 
     }
 
-
-
     return(
         <PageRoomContainer id="page-room">
-            <header>
-                <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
-                    <RoomCode code={codeID}/>
-                </div>
-            </header>
+            <Header>
+                <RoomCode code={codeID}/>
+            </Header>
 
             <main className="main-content">
                 <div className="room-title">

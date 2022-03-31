@@ -35,7 +35,10 @@ export const Container = styled.div`
            
            margin-top: 16px;
 
-           color: ${(props) => props.theme.colors.background};
+           color: ${(props) => props.theme.title === 'light' 
+                ?  props.theme.colors.background
+                :  props.theme.colors.asideText
+            };
         }
 
     }
@@ -80,9 +83,23 @@ export const Container = styled.div`
                 border-radius: 8px;
 
                 padding: 0 16px;
+
+                color: ${(props) => props.theme.title === 'light' 
+                    ? props.theme.colors.primaryGrey 
+                    : props.theme.colors.white
+                };
+
                 background: ${(props) => props.theme.colors.formBackground};
 
-                border: 1px solid ${(props) => props.theme.colors.secundaryGrey};
+                border: 1px solid ${(props) => props.theme.title === 'light'
+                    ? props.theme.colors.secundaryGrey
+                    : props.theme.colors.primary  
+                };
+
+                &:focus {
+                    outline: 1px solid ${(props) => props.theme.colors.primary};
+                    -moz-outline-radius: 0.5rem;
+                }
             }
 
             .submit-button {

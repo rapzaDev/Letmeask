@@ -1,23 +1,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background-color: #fefefe;
+    background-color: ${(props) => props.theme.colors.formBackground};
     
     border-radius: 0.5rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
 
     padding: 1.5rem;
 
 
     &.answered {
 
-        background-color: #dbdcdd;
+        background-color: ${(props) => props.theme.colors.answered};
+        
+        p {
+            color: ${(props) => props.theme.colors.text};
+        }
+
+        footer .user-info span {
+            color: ${(props) => props.theme.colors.primaryGrey};
+        }
 
     }
 
     &.highlighted {
 
-        background-color: #f4f0ff;
+        background-color: ${(props) => props.theme.colors.highlighted};
         border: 1px solid ${(props) => props.theme.colors.primary};
 
         footer .user-info span {
@@ -29,7 +37,7 @@ export const Container = styled.div`
 
 
     & + .question {
-        margin-top: .5rem;
+        margin-top: 0.7rem;
     }
 
 

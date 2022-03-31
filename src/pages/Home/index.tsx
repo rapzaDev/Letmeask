@@ -10,14 +10,14 @@ import { database } from '../../services/firebase';
 
 //ASSETS
 import illustrationImg from '../../assets/images/illustration.svg';
-import logoImg from '../../assets/images/logo.svg';
+// import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
 //COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton';
+import Image_Switch from '../../components/Image&Switcher';
 
 //STYLES
-// import './styles.scss';
 import { Container } from './styles';
 
 
@@ -93,8 +93,7 @@ function Home() {
 
             <main>
                 <div className="main-content">
-
-                    <img src={logoImg} alt="Letmeask logo" />
+                    <Image_Switch />
 
                     <DefaultButton 
                         className="google-button"

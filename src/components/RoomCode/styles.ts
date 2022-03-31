@@ -40,5 +40,6 @@ export const RoomCodeButton = styled.button`
         width: 230px;
         font-size: 14px;
         font-weight: 500;
+        color: ${(props) => props.theme.colors.text};
     }
 `;

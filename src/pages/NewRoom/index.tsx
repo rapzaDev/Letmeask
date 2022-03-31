@@ -14,6 +14,7 @@ import logoImg from '../../assets/images/logo.svg';
 
 //COMPONENTS
 import { DefaultButton } from '../../components/DefaultButton';
+import Image_Switch from '../../components/Image&Switcher';
 
 //STYLES
 import { Container } from './styles';
@@ -69,7 +70,7 @@ function NewRoom() {
             <main>
                 <div className="main-content">
 
-                    <img src={logoImg} alt="Letmeask logo" />
+                    <Image_Switch />
 
                     <h2>Crie uma nova sala</h2>
 

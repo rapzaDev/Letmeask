@@ -1,36 +1,6 @@
 import styled from 'styled-components';
 
 export const PageRoomContainer = styled.div`
-    header {
-
-        padding: 1.5rem;
-        border-bottom: 1px solid ${(props) => props.theme.colors.headerBorder};
-
-        .content {
-            max-width: 70rem;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            > img {
-                max-height: 2.8125rem;
-            }
-
-            button {
-                padding: 0;
-                align-items: unset;
-
-                &:hover {
-                    filter: unset;
-                }
-
-            }
-
-        }
-
-    }
-
     main {
         max-width: 50rem;
         margin: 0 auto;
@@ -69,6 +39,7 @@ export const PageRoomContainer = styled.div`
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
                 resize: vertical;
                 min-height: 8.125rem;
+                color: ${(props) => props.theme.title === 'dark' && props.theme.colors.white}
             }
 
             .form-footer {

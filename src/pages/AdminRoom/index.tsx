@@ -10,7 +10,7 @@ import { ref, remove, update, get } from 'firebase/database';
 import { database } from '../../services/firebase';
 
 //ASSETS
-import logoImg from '../../assets/images/logo.svg';
+// import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import checkImg from '../../assets/images/check.svg';
 import answerImg from '../../assets/images/answer.svg';
@@ -20,6 +20,7 @@ import answerImg from '../../assets/images/answer.svg';
 import { DefaultButton } from '../../components/DefaultButton';
 import { RoomCode } from '../../components/RoomCode';
 import Question from '../../components/Question';
+import Header from '../../components/Header';
 
 //STYLES
 import { PageRoomContainer } from './styles';
@@ -189,25 +190,18 @@ function AdminRoom() {
             return (
 
                 <PageRoomContainer id="page-room">
-                    <header>
+                    <Header>                            
+                        <div>
+                            <RoomCode code={codeID}/>
 
-                        <div className="content">
-                            <img src={logoImg} alt="Letmeask" />
-                            
-                            <div>
-                                <RoomCode code={codeID}/>
-
-                                <DefaultButton 
-                                    className="close-room"
-                                    onClick={handleEndRoom}
-                                >
-                                    Encerrar sala
-                                </DefaultButton>
-                            </div>
-
+                            <DefaultButton 
+                                className="close-room"
+                                onClick={handleEndRoom}
+                            >
+                                Encerrar sala
+                            </DefaultButton>
                         </div>
-
-                    </header>
+                    </Header>
 
                     <main className="main-content">
 
@@ -228,11 +222,7 @@ function AdminRoom() {
 
         } else return (
             <PageRoomContainer id="page-room">
-                <header>
-                    <div className="content">
-                        <img src={logoImg} alt="Letmeask" />
-                    </div>
-                </header>
+                <Header />
 
                 {renderIsNotAdminModal()}
             </PageRoomContainer>
