@@ -272,6 +272,14 @@
     }
 }
 
+@media(max-width: 500px) {
+    #page-room .main-content .form-footer {
+        #visitor >span {
+            flex-direction: column;
+        }
+    }
+}
+
 @media (max-width: 445px) {
 
     #page-room header .content div { 
@@ -389,6 +397,16 @@
         }
     }
 
+    #page-room .main-content .form-footer {
+        #visitor >span {
+            font-size: 0.8rem;
+
+            button {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 345px) { 
@@ -436,6 +454,13 @@
             margin-bottom: 1.3rem;
         }
 
+    }
+
+    #page-room .main-content .form-footer {
+        #visitor >span {
+            flex-direction: row;
+            margin-bottom: 1rem;
+        }
     }
 
 }

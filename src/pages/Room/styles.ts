@@ -70,7 +70,7 @@ export const PageRoomContainer = styled.div`
 
                 }
 
-                .visitor {
+                #visitor {
                     span {
                         display: flex;
                         align-items: center;

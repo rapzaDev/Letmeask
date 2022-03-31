@@ -138,7 +138,7 @@ function Room() {
             );
         } else {
             return (
-                <div className="visitor">
+                <div id="visitor">
                     <span>Para enviar uma pergunta, <button onClick={handleCreateRoom}>faça seu login.</button></span> 
                 </div>
             );
