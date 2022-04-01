@@ -42,8 +42,7 @@ type QuestionsType = {
     
     isAnswered: boolean,
     likeCount: number,
-    likeId: string | undefined,
-
+    likeId: string,
 }
 
 
@@ -83,8 +82,20 @@ export function useRoom( codeID: string ) {
             const data: FirebaseDataType = snapshot.val();
             const { questions, title } = data;
 
-            const parsedQuestions = Object.entries(questions)
+            console.log(data);
+
+            setRoomTitle(title);
+            
+            let parsedQuestions;
+            if (questions){
+                parsedQuestions = Object.entries(questions)
                 .map<QuestionsType>( ([ key, value ]) => {
+
+                    const data = Object.entries(value.likes ?? {}).find( ( [key, like] ) => like.authorId === user?.id )?.[0];
+                    
+                    let likeIdData:string = ''
+                    if (data) likeIdData = data;
+
                     return {
                         id: key,
                         content: value.content,
@@ -92,12 +103,12 @@ export function useRoom( codeID: string ) {
                         isHighlighted: value.isHighlighted,
                         isAnswered: value.isAnswered,
                         likeCount: Object.values(value.likes ?? {}).length,
-                        likeId: Object.entries(value.likes ?? {}).find( ( [key, like] ) => like.authorId === user?.id )?.[0],
+                        likeId: likeIdData,
                     }
                 });
-            
-            setRoomTitle(title);
-            setQuestions(parsedQuestions);
+
+                setQuestions(parsedQuestions);
+            }
         });
 
         checkIfUserIsAdmin();

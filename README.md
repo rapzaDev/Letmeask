@@ -1,8 +1,9 @@
+# Letmeask 
+
 <div align="center">
     <img src="https://raw.githubusercontent.com/rapzaDev/Letmeask/master/src/assets/images/logo.svg">
 </div>
-
-# Letmeask 
+<br>
 
 This is a React.js application using Firebase to lives and streamings where is possible to create chat rooms to answer live questions.
 This project is full responsive and have two style theme selection: light or dark. You can check it out this project on: https://letmeask-rpz.web.app/
@@ -55,6 +56,6 @@ Start the server
 That was the 6th edition of the NLW by the Rocketseat! They planted some challenges that I had to apply alone to improve the project.
 
 ### Challenges:
-- Make the project full responsive
+- Make the project full responsive.
 - Add a dark theme to the project and persist the choosen theme.
-- I also added a control on the admin page. If the user is not the admin of the current room, they will not be able to see your content as an admin
+- I also added a control on the admin page. If the user is not the admin of the current room, they will not be able to see your content as an admin.
