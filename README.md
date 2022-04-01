@@ -7,6 +7,9 @@
 
 This is a React.js application using Firebase to lives and streamings where is possible to create chat rooms to answer live questions.
 This project is full responsive and have two style theme selection: light or dark. You can check it out this project on: https://letmeask-rpz.web.app/
+<br>
+To see a created room with questions and all his functionalities use the room code bellow:
+<br> -MzaTldqEaH7NVdtRwoy
 
 
 
